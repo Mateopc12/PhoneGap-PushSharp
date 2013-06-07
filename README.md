@@ -11,9 +11,10 @@ After the App is created and the push notification is enabled, you need to creat
 CERTIFICATES
 
 On the "Certificates" section you must create a -App Store and Ad Hoc- under the Distribution section.
-
   
-[1.png]
+![1](https://raw.github.com/Mateopc12/PhoneGap-PushSharp/master/1.png)
+
+![2](https://raw.github.com/Mateopc12/PhoneGap-PushSharp/master/2.png)
 
 
 In a MAC, in the Keychain Access you need to go to Certificate Assitant > Request a Certificate From a Certificate Authority
@@ -22,7 +23,7 @@ Make sure you checked the option saved in disk and that you specify key pair inf
 This generates a file that by default is named as "CertificateSigningRequest.certSigningRequest". This file is the one you are going to Upload to the Developer center and
 Generate your Certificate:
 
-
+![3](https://raw.github.com/Mateopc12/PhoneGap-PushSharp/master/3.png)
 
 This process creates a .cer file, doble click that file so you can install it in your Keychain Access.
 Once there, locate the new certificate and export it as a .p12 file (right click on the file > Export). 
@@ -33,15 +34,15 @@ ______________________________________________________________
 PROVISIONING PROFILE:
 On "Provisioning profiles" section, you need to create a new Provisioning profile:
 
-
+![4](https://raw.github.com/Mateopc12/PhoneGap-PushSharp/master/4.png)
 
 Under "Distribution section", you need to select -Ad Hoc- and the App ID that matches the one you are about to deploy.
 
-
+![5](https://raw.github.com/Mateopc12/PhoneGap-PushSharp/master/5.png)
 
 Last thing you need to do is to Select your certificate (the same certificate created before):
 
-
+![6](https://raw.github.com/Mateopc12/PhoneGap-PushSharp/master/6.png)
 
 Now, you finally have a .p12 and a .mobileprovision, both needed in phonegapBuild!
 
@@ -83,6 +84,7 @@ After importing the library into your proyect, the code is as simple as this:
   		//WHATEVER YOU WANT TO DO WITH THE ERROR MESSAGE;
 	    }
 
+
 Android
 The Client Side is the same, (no certificates required) you can also see it in the same example: http://devgirl.org/2013/01/24/push-notifications-plugin-support-added-to-phonegap-build/ 
 You don't need to do anything extra to register you device on the GCM servers, in the example and the following steps are all the information you need to successfully register the device.
@@ -93,17 +95,19 @@ First, you need to configure GCM (google cloud messaging) service:
 
 Place yourself in https://code.google.com/apis/console/* *and sign in with the enterprise (thinking about a commercial app) gmail account and select Services:
 
-
+![7](https://raw.github.com/Mateopc12/PhoneGap-PushSharp/master/7.png)
 
 Look for the Google Cloud Messaging for Android service, and enable it.
 
-
+![8](https://raw.github.com/Mateopc12/PhoneGap-PushSharp/master/8.png)
 
 After that, you can see in the API Access section, your API Key:
 
+![9](https://raw.github.com/Mateopc12/PhoneGap-PushSharp/master/9.png)
+
 In the Overview link, you can find the project number:
 
-
+![10](https://raw.github.com/Mateopc12/PhoneGap-PushSharp/master/10.png)
 
 Finally, to connect with GCM servers, you can use the same library PushSharp, the following example was taken from their documentation:
 
