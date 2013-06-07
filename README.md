@@ -62,8 +62,8 @@ After importing the library into your proyect, the code is as simple as this:
 
     
 
-try
-            {
+		try
+            	{
                 //Create our push services broker
                 var push = new PushBroker();
 
@@ -80,10 +80,9 @@ try
             }
             catch (Exception ex)
             {
-
-  	//WHATEVER YOU WANT TO DO WITH THE ERROR MESSAGE;
-
+  		//WHATEVER YOU WANT TO DO WITH THE ERROR MESSAGE;
 	    }
+
 Android
 The Client Side is the same, (no certificates required) you can also see it in the same example: http://devgirl.org/2013/01/24/push-notifications-plugin-support-added-to-phonegap-build/ 
 You don't need to do anything extra to register you device on the GCM servers, in the example and the following steps are all the information you need to successfully register the device.
@@ -108,18 +107,17 @@ In the Overview link, you can find the project number:
 
 Finally, to connect with GCM servers, you can use the same library PushSharp, the following example was taken from their documentation:
 
+		
 		push.RegisterGcmService(new GcmPushChannelSettings("theauthorizationtokenhere"));
-
 		//Fluent construction of an Android GCM Notification
-
 		//IMPORTANT: For Android you MUST use your own RegistrationId here that gets generated within your Android app itself!
-
 		push.QueueNotification(new GcmNotification().ForDeviceRegistrationId("DEVICE REGISTRATION ID HERE")
-
-                      .WithJson("{\"alert\":\"Hello World!\",\"badge\":7,\"sound\":\"sound.caf\"}"));
+		.WithJson("{\"alert\":\"Hello World!\",\"badge\":7,\"sound\":\"sound.caf\"}"));
+		
+		
 or you can do it manually, as I did:
 
-public void SendGcmPushNotification(PushGcmNotificationMessageDto pushDto)
+	public void SendGcmPushNotification(PushGcmNotificationMessageDto pushDto)
         {
             string content = pushDto.MessageContent;
             string title = pushDto.MessageTitle;
@@ -139,7 +137,7 @@ public void SendGcmPushNotification(PushGcmNotificationMessageDto pushDto)
         }
 
 
-private void SendGcmNotification(string postData)
+	private void SendGcmNotification(string postData)
         {
             string apiKey = Common.Settings.SnapCauseSettings.Default.GCMApiKey;
             ServicePointManager.ServerCertificateValidationCallback += ValidateServerCertificate;
